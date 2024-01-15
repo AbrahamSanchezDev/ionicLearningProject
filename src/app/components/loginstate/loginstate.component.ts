@@ -25,18 +25,19 @@ export class LoginstateComponent implements OnInit {
       return 'Error inesperado! intentelo mas tarde';
     }
 
-    await this.confirmLogin(user,pass);
+    await this.confirmLogin(user, pass);
 
     return 'Login Success';
   }
-  async confirmLogin(user: string, pass: string) {
 
+  async confirmLogin(user: string, pass: string) {
     return 'Login';
   }
 
   passChacker(pass: string) {
     return true;
   }
+
   userCheker(user: string) {
     return true;
   }
