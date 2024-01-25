@@ -6,7 +6,18 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import firebase from 'firebase/app';
 
+const firebaseConfig = {
+  apiKey: 'AIzaSyDF9Qh0kYRwJ8gvNX8POKCgUe44_Cldoko',
+  authDomain: 'abrahamsf-16ad5.firebaseapp.com',
+  projectId: 'abrahamsf-16ad5',
+  storageBucket: 'abrahamsf-16ad5.appspot.com',
+  messagingSenderId: '382472143986',
+  appId: '1:382472143986:web:6915cb14db784233e56eeb',
+};
+
+firebase.initializeApp(firebaseConfig);
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],

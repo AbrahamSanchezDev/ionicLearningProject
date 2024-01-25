@@ -8,25 +8,35 @@ import { LoginstateComponent } from '../components/loginstate/loginstate.compone
   styleUrls: ['./loginpage.page.scss'],
 })
 export class LoginpagePage implements OnInit {
+  passView:boolean = false;
   user: string = '';
   pass: string = '';
 
-  constructor(private toastController: ToastController,private alertController:AlertController) {}
+  constructor(
+    private toastController: ToastController,
+    private alertController: AlertController,
+    private lsc: LoginstateComponent
+  ) {}
 
   ngOnInit() {
     this.login();
   }
 
-  login(){
-
+  async login() {
+    const result = await this.lsc.loginVerification(this.user,this.pass);
+    if(result){
+        //redireccionar a inicio
+    }
+    else{
+      //mandar mensaje de error!
+    }
   }
 
-  async mostrarMensaje(titulo : string,msj : string){
-
+  async mostrarMensaje(titulo: string, msj: string) {
     const alerta = await this.alertController.create({
       header: titulo,
       message: msj,
-      buttons: ['Cerrar']
+      buttons: ['Cerrar'],
       // buttons: [
       //   'Cerrar'
       //   ,
@@ -56,6 +66,6 @@ export class LoginpagePage implements OnInit {
     console.log(this.user);
     console.log(this.pass);
 
-    this.presentToast('top', this.user + " " + this.pass);
+    this.presentToast('top', this.user + ' ' + this.pass);
   }
 }

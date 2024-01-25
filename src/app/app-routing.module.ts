@@ -15,6 +15,14 @@ const routes: Routes = [
     path: 'loginpage',
     loadChildren: () => import('./loginpage/loginpage.module').then( m => m.LoginpagePageModule)
   },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'infinitescrolla',
+    loadChildren: () => import('./infinitescrolla/infinitescrolla.module').then( m => m.InfinitescrollaPageModule)
+  },
 ];
 
 @NgModule({
