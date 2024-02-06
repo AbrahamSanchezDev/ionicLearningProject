@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'infinitescrolla',
     loadChildren: () => import('./infinitescrolla/infinitescrolla.module').then( m => m.InfinitescrollaPageModule)
   },
+  {
+    path: 'apitester',
+    loadChildren: () => import('./apitester/apitester.module').then( m => m.ApitesterPageModule)
+  },
 ];
 
 @NgModule({

@@ -10,4 +10,49 @@
       <ion-title size="large">infinitescrolla</ion-title>
     </ion-toolbar>
   </ion-header>
+  <div>
+    <div id="superior">
+      <ion-item>
+        <ion-label position="floating" >Nombre</ion-label>
+        <ion-input [(ngModel)]="nombre"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating" >Categoria</ion-label>
+        <ion-input [(ngModel)]="categoria"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating" >Precio</ion-label>
+        <ion-input [(ngModel)]="precio"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating" >Cantidad de stock</ion-label>
+        <ion-input [(ngModel)]="cantidad"></ion-input>
+      </ion-item>
+    <!-- </div>
+    <div id="inferior"> -->
+      <ion-item>
+        <ion-label position="floating" >Proveedor</ion-label>
+        <ion-input [(ngModel)]="provedor"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Fecha de ingreso</ion-label>
+        <ion-input [(ngModel)]="fechaIngreso"></ion-input>
+      </ion-item>
+      <ion-button (click)="guardarDatos()">enviar</ion-button>
+    </div>
+  </div>
+
+  <ion-list>
+    <ion-item *ngFor="let item of items; let index">
+      <ion-label>{{index}}</ion-label>
+      <ion-avatar slot="start">
+        <img [src]="'https://picsum.photos/80/80?random=' + index" alt="" />
+      </ion-avatar>
+      <ion-label slot="start">Mensaje nuevo {{item}}</ion-label>
+      <ion-label slot="end">11:56am</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+    <ion-infinite-scroll-content> </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>

@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>apitester</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">apitester</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <ion-item>
+      <ion-label>Test de api response</ion-label>
+      <ion-input [(ngModel)]='url'></ion-input>
+    </ion-item>
+    <ion-button (click)="peticion()"></ion-button>
+    <ion-avatar>
+      <img src="../../assets/brain.jpg" alt="" srcset="">
+    </ion-avatar>
+    <ion-text>{{respuesta}}</ion-text>
+  </div>
+</ion-content>

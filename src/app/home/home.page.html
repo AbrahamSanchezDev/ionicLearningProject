@@ -1,6 +1,14 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title> Blank </ion-title>
+    <ion-title> Home </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="nav('/login')">
+        Login
+      </ion-button>
+       <ion-button (click)="nav('/loginpage')">
+        Signin
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
