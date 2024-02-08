@@ -1,8 +1,14 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>login</ion-title>
+    <ion-title>Registrarse</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="nav('/home')">
+        Home
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
@@ -51,6 +57,9 @@
     </div>
     <br />
     <ion-button (click)="signin()">Registrarse</ion-button>
-    <ion-text color="primary"> Ya estas registrado? iniciar sesion </ion-text>
+    <ion-text color="tertiary">
+      Ya estas registrado?
+    </ion-text>
+    <ion-text color="primary" (click)="nav('/loginpage')" class="clickable">iniciar sesion </ion-text>
   </div>
 </ion-content>

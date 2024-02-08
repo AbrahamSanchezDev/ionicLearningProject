@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./apitester.page.scss'],
 })
 export class ApitesterPage implements OnInit {
-  public url: string = '';
-  public respuesta: string = '';
+  url: string = '';
+  respuesta: string = '';
 
   constructor() {}
 
