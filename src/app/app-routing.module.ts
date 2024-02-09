@@ -27,6 +27,10 @@ const routes: Routes = [
     path: 'apitester',
     loadChildren: () => import('./apitester/apitester.module').then( m => m.ApitesterPageModule)
   },
+  {
+    path: 'calculadora',
+    loadChildren: () => import('./calculadora/calculadora.module').then( m => m.CalculadoraPageModule)
+  },
 ];
 
 @NgModule({

@@ -1,0 +1,47 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-calculadora',
+  templateUrl: './calculadora.page.html',
+  styleUrls: ['./calculadora.page.scss'],
+})
+export class CalculadoraPage implements OnInit {
+  display: string = '0';
+
+  constructor() {}
+
+  ngOnInit() {}
+
+  clear() {
+    this.display = '0';
+  }
+
+  igual() {
+    try {
+      this.display = eval(this.display);
+    } catch (error) {
+      this.display = this.errorText;
+    }
+  }
+
+  errorText: string = 'Error!';
+
+  hasError() {
+    return this.display == this.errorText;
+  }
+  borrar() {
+    if (this.display.length == 1 || this.hasError()) {
+      this.display = '0';
+      return;
+    }
+    this.display = this.display.slice(0, -1);
+  }
+  add(key: string) {
+    console.log("Adding " + key);
+    if(this.display == "0"){
+      this.display = key;
+      return;
+    }
+    this.display += key;
+  }
+}
