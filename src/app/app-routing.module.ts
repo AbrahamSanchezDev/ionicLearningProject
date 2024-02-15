@@ -31,6 +31,14 @@ const routes: Routes = [
     path: 'calculadora',
     loadChildren: () => import('./calculadora/calculadora.module').then( m => m.CalculadoraPageModule)
   },
+  {
+    path: 'admin-formulario',
+    loadChildren: () => import('./admin-formulario/admin-formulario.module').then( m => m.AdminFormularioPageModule)
+  },
+  {
+    path: 'admin-respuestas',
+    loadChildren: () => import('./admin-respuestas/admin-respuestas.module').then( m => m.AdminRespuestasPageModule)
+  },
 ];
 
 @NgModule({
