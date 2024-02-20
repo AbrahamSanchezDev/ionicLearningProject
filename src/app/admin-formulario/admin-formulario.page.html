@@ -10,4 +10,38 @@
       <ion-title size="large">admin-formulario</ion-title>
     </ion-toolbar>
   </ion-header>
+  <div id="container">
+    <ion-card>
+      <ion-card-header> <ion-input [(ngModel)]="titulo"> </ion-input> </ion-card-header>
+      <ion-card-content> <ion-input [(ngModel)]="subtitulo"> </ion-input> </ion-card-content>
+    </ion-card>
+    <ion-card *ngFor="let c of contador;let i">
+      <ion-card-header>
+        <ion-card-subtitle>Awesome Subtitle</ion-card-subtitle>
+        <ion-card-title>Awesome Title</ion-card-title>
+        {{c}}
+      </ion-card-header>
+
+      <ion-card-content>
+        <div>
+
+        </div>
+
+        <div>
+
+        </div>
+        <ion-button
+          (click)="eleminar(c)"
+          expand="block"
+          fill="clear"
+          shape="round"
+        >
+          Eliminar
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+    <ion-button (click)="agregar()" expand="block" fill="clear" shape="round">
+      Agregar
+    </ion-button>
+  </div>
 </ion-content>

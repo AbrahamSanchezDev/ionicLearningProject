@@ -1,0 +1,63 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>convertidor-de-monedas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">convertidor-de-monedas</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <ion-item>
+      <ion-label>Moneda Original</ion-label>
+
+      <!-- <ion-input type="number" placeholder="0"></ion-input> -->
+      <ion-select [(ngModel)]="moneda1" placeholder="Select Currency">
+        <ion-select-option value="USD">US - USD</ion-select-option>
+        <ion-select-option value="INR">India -INR</ion-select-option>
+        <ion-select-option value="CNY">China - CNY</ion-select-option>
+        <ion-select-option value="EUR">Francia - EUR</ion-select-option>
+        <ion-select-option value="MXN">Mexico - MXN</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Convertir a Moneda</ion-label>
+
+      <!-- <ion-input type="number" placeholder="0"></ion-input> -->
+      <!-- (ionChange)="optionChanged()" -->
+      <ion-select [(ngModel)]="moneda2" placeholder="Select Currency">
+        <ion-select-option value="USD">US - USD</ion-select-option>
+        <ion-select-option value="INR">India -INR</ion-select-option>
+        <ion-select-option value="CNY">China - CNY</ion-select-option>
+        <ion-select-option value="EUR">Francia - EUR</ion-select-option>
+        <ion-select-option value="MXN">Mexico - MXN</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Cantidad de Moneda Original</ion-label>
+
+      <ion-input
+        type="number"
+        placeholder="0"
+        [(ngModel)]="cantidad"
+      ></ion-input>
+    </ion-item>
+
+    <ion-button (click)="calcular()" expand="block" fill="clear" shape="round">
+      Convertir
+    </ion-button>
+
+    <ion-item>
+      <ion-title>Es equivale a : </ion-title>
+      <ion-text color="primary">
+        <h1>{{equivalente}}</h1>
+      </ion-text>
+    </ion-item>
+  </div>
+</ion-content>

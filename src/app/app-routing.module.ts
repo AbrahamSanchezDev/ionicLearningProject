@@ -39,6 +39,14 @@ const routes: Routes = [
     path: 'admin-respuestas',
     loadChildren: () => import('./admin-respuestas/admin-respuestas.module').then( m => m.AdminRespuestasPageModule)
   },
+  {
+    path: 'convertidor-de-monedas',
+    loadChildren: () => import('./convertidor-de-monedas/convertidor-de-monedas.module').then( m => m.ConvertidorDeMonedasPageModule)
+  },
+  {
+    path: 'conwaygame',
+    loadChildren: () => import('./conwaygame/conwaygame.module').then( m => m.ConwaygamePageModule)
+  },
 ];
 
 @NgModule({
