@@ -14,7 +14,7 @@
   <h1>Display:</h1>
   <div id="tablero">
     <div id="fila" *ngFor="let fila of tablero">
-      <div id="celula" *ngFor="let celula of fila"></div>
+      <div [id]="'celula'+ celula" *ngFor="let celula of fila"></div>
     </div>
   </div>
 </ion-content>

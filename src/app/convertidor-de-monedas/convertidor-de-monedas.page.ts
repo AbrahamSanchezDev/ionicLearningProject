@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 export class modena {
   nombre: string = '';
+  icon: string = '';
   USD: number = 1;
   INR: number = 1;
   CNY: number = 1;
@@ -10,6 +11,7 @@ export class modena {
 
   constructor(
     name: string,
+    icon: string,
     usd: number,
     inr: number,
     cny: number,
@@ -17,6 +19,7 @@ export class modena {
     mxn: number
   ) {
     this.nombre = name;
+    this.icon = icon;
     this.USD = usd;
     this.INR = inr;
     this.CNY = cny;
@@ -25,8 +28,7 @@ export class modena {
   }
 
   getTotalFor(other: string, amount: number) {
-
-    console.log("Converting " + this.nombre + "  a  " + other);
+    console.log('Converting ' + this.nombre + '  a  ' + other);
     switch (other) {
       case 'USD':
         return this.USD * amount;
@@ -37,12 +39,9 @@ export class modena {
       case 'EUR':
         return this.EUR * amount;
       case 'MXN':
-        console.log(this.MXN);
-        console.log(amount);
-        console.log(this.MXN * amount);
         return this.MXN * amount;
     }
-    console.log("NO MATCH");
+    console.log('NO MATCH');
     return 1;
   }
 }
@@ -55,16 +54,16 @@ export class ConvertidorDeMonedasPage implements OnInit {
   moneda1: string = '';
   moneda2: string = '';
 
-  equivalente: number = 0;
+  equivalente: string = '0';
   cantidad: number = 0;
 
   monedas: { [key: string]: any } = {};
   constructor() {
-    const usd = new modena('USD', 1, 42032.5, 7.16, 0.93, 17.05);
-    const inr = new modena('INR', 0.012, 1, 0.012, 0.011, 0.21);
-    const cny = new modena('CNY', 0.14, 11.67, 1, 0.13, 2.38);
-    const eur = new modena('EUR', 1.08, 2, 3, 1, 18.36);
-    const mxn = new modena('MXN', 2, 2, 3, 4, 1);
+    const usd = new modena('USD', '$', 1, 42032.5, 7.16, 0.93, 17.05);
+    const inr = new modena('INR', '₹', 0.012, 1, 0.012, 0.011, 0.21);
+    const cny = new modena('CNY', '¥', 0.14, 11.67, 1, 0.13, 2.38);
+    const eur = new modena('EUR', '€', 1.08, 2, 3, 1, 18.36);
+    const mxn = new modena('MXN', '$', 0.059, 4.86, 0.42, 0.054, 1);
 
     this.monedas['USD'] = usd;
     this.monedas['INR'] = inr;
@@ -80,14 +79,26 @@ export class ConvertidorDeMonedasPage implements OnInit {
   }
 
   calcular() {
-    if(this.moneda1 == "" || this.moneda2 == ""){
+    if (this.moneda1 == '' || this.moneda2 == '') {
       return;
     }
-    if(this.cantidad <= 0){
-
+    if (this.cantidad <= 0) {
       return;
     }
 
-    this.equivalente =  this.monedas[this.moneda1].getTotalFor(this.moneda2,this.cantidad);
+    const amount = this.monedas[this.moneda1].getTotalFor(
+      this.moneda2,
+      this.cantidad
+    );
+
+    const options = {
+      style: 'decimal', // Other options: 'currency', 'percent', etc.
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    };
+    const formattedWithOptions = amount.toLocaleString('en-US', options);
+
+    this.equivalente =
+      this.monedas[this.moneda2].icon + ' ' + formattedWithOptions;
   }
 }
