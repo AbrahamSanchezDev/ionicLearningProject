@@ -72,7 +72,9 @@ export class ConvertidorDeMonedasPage implements OnInit {
     this.monedas['MXN'] = mxn;
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.equivalente = "0";
+  }
 
   optionChanged() {
     console.log(this.moneda1 + ' - ' + this.moneda2);

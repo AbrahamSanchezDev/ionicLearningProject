@@ -7,6 +7,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import firebase from 'firebase/app';
+import 'firebase/database';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDF9Qh0kYRwJ8gvNX8POKCgUe44_Cldoko',
@@ -18,9 +19,18 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
+
+import { ReactiveFormsModule } from '@angular/forms';
+
+
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    ReactiveFormsModule,
+  ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

@@ -1,0 +1,19 @@
+#superior{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  justify-content: space-around;
+}
+#conteiner {
+  width: 100%;
+}
+#close{
+  background-color: red;
+  border-radius: 50%;
+}
+ion-input:hover{
+  --background: #d1cecd3c;
+}

@@ -47,6 +47,14 @@ const routes: Routes = [
     path: 'conwaygame',
     loadChildren: () => import('./conwaygame/conwaygame.module').then( m => m.ConwaygamePageModule)
   },
+  {
+    path: 'simple-algorithms',
+    loadChildren: () => import('./simple-algorithms/simple-algorithms.module').then( m => m.SimpleAlgorithmsPageModule)
+  },
+  {
+    path: 'agenda-de-contactos',
+    loadChildren: () => import('./agenda-de-contactos/agenda-de-contactos.module').then( m => m.AgendaDeContactosPageModule)
+  },
 ];
 
 @NgModule({

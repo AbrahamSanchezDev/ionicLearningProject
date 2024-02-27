@@ -1,0 +1,57 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>agenda-de-contactos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Agenda de Contactos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <div id="superior">
+
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input [(ngModel)]="nombre" [required]="true"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Apellido Paterno</ion-label>
+        <ion-input [(ngModel)]="apellidoP" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Apellido Materno</ion-label>
+        <ion-input [(ngModel)]="apellidoM"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Numero Telefonico</ion-label>
+        <ion-input [(ngModel)]="phone" [required]="true"></ion-input>
+      </ion-item>
+      <ion-button (click)="guardarDatos()">Guardar</ion-button>
+    </div>
+
+    <ion-list>
+      <ion-item *ngFor="let item of data; let i = index">
+        <ion-avatar slot="start">
+          <img [src]="'https://picsum.photos/80/80?random=' + i" alt="" />
+        </ion-avatar>
+        <ion-label slot="start"
+          >{{item.nombre}} </ion-label
+        >
+         <ion-label slot="start"
+          >{{item.apellidoP}} </ion-label
+        >
+         <ion-label slot="start"
+          >{{item.apellidoM}}</ion-label
+        >
+        <ion-label slot="start"># {{item.phone}}</ion-label>
+        <ion-button (click)="deleteDatoAt(i)" id="close" slot="end">
+          X
+        </ion-button>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
