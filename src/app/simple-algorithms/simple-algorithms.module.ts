@@ -8,13 +8,17 @@ import { SimpleAlgorithmsPageRoutingModule } from './simple-algorithms-routing.m
 
 import { SimpleAlgorithmsPage } from './simple-algorithms.page';
 
+import { PlotlyModule } from 'angular-plotly.js';
+
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SimpleAlgorithmsPageRoutingModule
+    SimpleAlgorithmsPageRoutingModule,
+    PlotlyModule
   ],
-  declarations: [SimpleAlgorithmsPage]
+  declarations: [SimpleAlgorithmsPage],
 })
 export class SimpleAlgorithmsPageModule {}
