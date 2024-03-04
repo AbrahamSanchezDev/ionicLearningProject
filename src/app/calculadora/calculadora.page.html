@@ -1,6 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>calculadora</ion-title>
+    <ion-buttons slot="end">
+        <ion-button (click)="nav('/home')"> Home </ion-button>
+      </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -8,32 +11,32 @@
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">calculadora</ion-title>
+
     </ion-toolbar>
   </ion-header>
   <div id="container">
     <h1>Calculadora</h1>
     <div class="calculadora">
+      <div class="pantalla">{{display}}</div>
 
-        <div class="pantalla">{{display}}</div>
-
-        <button id="c" class="btn" (click)="clear()">C</button>
-        <button id="borrar" class="btn" (click)="borrar()">←</button>
-        <button class="btn" (click)="add('/')">/</button>
-        <button class="btn" (click)="add('*')">*</button>
-        <button class="btn" (click)="add('7')">7</button>
-        <button class="btn" (click)="add('8')">8</button>
-        <button class="btn" (click)="add('9')">9</button>
-        <button class="btn" (click)="add('-')">-</button>
-        <button class="btn" (click)="add('4')">4</button>
-        <button class="btn" (click)="add('5')">5</button>
-        <button class="btn" (click)="add('6')">6</button>
-        <button class="btn" (click)="add('+')">+</button>
-        <button class="btn" (click)="add('1')">1</button>
-        <button class="btn" (click)="add('2')">2</button>
-        <button class="btn" (click)="add('3')">3</button>
-        <button id="igual" class="btn" (click)="igual()">=</button>
-        <button id="cero" class="btn" (click)="add('0')">0</button>
-        <button class="btn" (click)="add('.')">.</button>
+      <button id="c" class="btn" (click)="clear()">C</button>
+      <button id="borrar" class="btn" (click)="borrar()">←</button>
+      <button class="btn" (click)="add('/')">/</button>
+      <button class="btn" (click)="add('*')">*</button>
+      <button class="btn" (click)="add('7')">7</button>
+      <button class="btn" (click)="add('8')">8</button>
+      <button class="btn" (click)="add('9')">9</button>
+      <button class="btn" (click)="add('-')">-</button>
+      <button class="btn" (click)="add('4')">4</button>
+      <button class="btn" (click)="add('5')">5</button>
+      <button class="btn" (click)="add('6')">6</button>
+      <button class="btn" (click)="add('+')">+</button>
+      <button class="btn" (click)="add('1')">1</button>
+      <button class="btn" (click)="add('2')">2</button>
+      <button class="btn" (click)="add('3')">3</button>
+      <button id="igual" class="btn" (click)="igual()">=</button>
+      <button id="cero" class="btn" (click)="add('0')">0</button>
+      <button class="btn" (click)="add('.')">.</button>
     </div>
   </div>
 </ion-content>

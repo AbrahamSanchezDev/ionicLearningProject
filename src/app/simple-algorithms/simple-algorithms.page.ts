@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as PlotlyJS from 'plotly.js-dist-min';
+import { SimpleAlgorithmsServiceService } from '../services/simple-algorithms-service.service';
 import { PlotlyModule } from 'angular-plotly.js';
+import { RedireccionamientoService } from '../services/redireccionamiento.service';
 PlotlyModule.plotlyjs = PlotlyJS;
 
 @Component({
@@ -9,16 +11,35 @@ PlotlyModule.plotlyjs = PlotlyJS;
   styleUrls: ['./simple-algorithms.page.scss'],
 })
 export class SimpleAlgorithmsPage implements OnInit {
+  fibo: number[] = [];
+  primes: number[] = [];
+
   public grafica = {
-    data: [{ x: [1, 2, 3], y: [1, 2, 3], type: 'bar' }],
+    data: [{ x: [1, 2, 3], y: [1, 2, 3], type: 'scatter' }],
     layout: { title: '', width: 800, height: 800 },
   };
 
-  constructor() {}
+  constructor(
+    private simpleAlg: SimpleAlgorithmsServiceService,
+    private redireccionamiento: RedireccionamientoService
+  ) {}
+
+
+  nav(ruta: string) {
+    this.redireccionamiento.navegar(ruta);
+  }
 
   ngOnInit() {
     this.poblar(100);
     this.bubbleSort();
+    this.cargarData();
+  }
+
+  cargarData() {
+    this.fibo = this.simpleAlg.fibonacci(100);
+    for (let i = 1; i < 100; i++) {
+      this.primes.push(this.simpleAlg.esPrimo(i));
+    }
   }
 
   generarRandomNum(n: number): number[] {
@@ -47,7 +68,7 @@ export class SimpleAlgorithmsPage implements OnInit {
     let check;
     do {
       check = false;
-      for (let i = 0; i < this.grafica.data[0].y.length -1; i++) {
+      for (let i = 0; i < this.grafica.data[0].y.length - 1; i++) {
         if (this.grafica.data[0].y[i] > this.grafica.data[0].y[i + 1]) {
           let temp = this.grafica.data[0].y[i];
           this.grafica.data[0].y[i] = this.grafica.data[0].y[i + 1];

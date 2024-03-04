@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RedireccionamientoService } from '../services/redireccionamiento.service';
 
 interface Pregunta {
   pregunta: string;
@@ -19,10 +20,14 @@ export class AdminFormularioPage implements OnInit {
   index: number = 1;
   contador: number[] = [1];
 
-  titulo:string = "";
-  subtitulo:string = "";
+  titulo: string = '';
+  subtitulo: string = '';
 
-  constructor() {}
+  constructor(private redireccionamiento: RedireccionamientoService) {}
+
+  nav(ruta: string) {
+    this.redireccionamiento.navegar(ruta);
+  }
 
   ngOnInit() {}
 

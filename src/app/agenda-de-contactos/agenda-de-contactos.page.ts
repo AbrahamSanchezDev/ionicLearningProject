@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import firebase from 'firebase/app';
 import 'firebase/database';
+import { RedireccionamientoService } from '../services/redireccionamiento.service';
 
 interface contacto {
   nombre: string;
@@ -21,7 +22,11 @@ export class AgendaDeContactosPage implements OnInit {
   phone: string = '';
 
   data: contacto[] = [];
-  constructor() {}
+  constructor(private redireccionamiento: RedireccionamientoService) {}
+
+  nav(ruta: string) {
+    this.redireccionamiento.navegar(ruta);
+  }
 
   ngOnInit() {
     this.loadFromFirebase();
@@ -35,8 +40,8 @@ export class AgendaDeContactosPage implements OnInit {
   }
 
   guardarDatos() {
-    if(this.nombre == "" || this.phone == ""){
-      console.log("Nombre y telefono son requeridos");
+    if (this.nombre == '' || this.phone == '') {
+      console.log('Nombre y telefono son requeridos');
       return;
     }
     console.log('guardar Datos');

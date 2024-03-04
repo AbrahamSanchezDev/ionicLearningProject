@@ -1,6 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>simple-algorithms</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="nav('/home')"> Home </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -12,7 +15,6 @@
   </ion-header>
 
   <div id="contenedor-graficas">
-
     <plotly-plot [data]="grafica.data" [layout]="grafica.layout"></plotly-plot>
   </div>
 </ion-content>

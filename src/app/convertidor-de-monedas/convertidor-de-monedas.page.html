@@ -1,6 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>convertidor-de-monedas</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="nav('/home')"> Home </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -49,8 +52,6 @@
       ></ion-input>
     </ion-item>
 
-
-
     <ion-item>
       <ion-title>Es equivale a : </ion-title>
       <ion-text color="primary">
@@ -58,7 +59,12 @@
       </ion-text>
     </ion-item>
 
-     <ion-button (click)="calcular()" expand="block"  shape="round" color="success">
+    <ion-button
+      (click)="calcular()"
+      expand="block"
+      shape="round"
+      color="success"
+    >
       Convertir
     </ion-button>
   </div>

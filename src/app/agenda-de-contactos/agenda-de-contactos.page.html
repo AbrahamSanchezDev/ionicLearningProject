@@ -1,6 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>agenda-de-contactos</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="nav('/home')"> Home </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -13,14 +16,13 @@
 
   <div id="container">
     <div id="superior">
-
       <ion-item>
         <ion-label position="floating">Nombre</ion-label>
         <ion-input [(ngModel)]="nombre" [required]="true"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Apellido Paterno</ion-label>
-        <ion-input [(ngModel)]="apellidoP" ></ion-input>
+        <ion-input [(ngModel)]="apellidoP"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Apellido Materno</ion-label>
@@ -38,15 +40,9 @@
         <ion-avatar slot="start">
           <img [src]="'https://picsum.photos/80/80?random=' + i" alt="" />
         </ion-avatar>
-        <ion-label slot="start"
-          >{{item.nombre}} </ion-label
-        >
-         <ion-label slot="start"
-          >{{item.apellidoP}} </ion-label
-        >
-         <ion-label slot="start"
-          >{{item.apellidoM}}</ion-label
-        >
+        <ion-label slot="start">{{item.nombre}} </ion-label>
+        <ion-label slot="start">{{item.apellidoP}} </ion-label>
+        <ion-label slot="start">{{item.apellidoM}}</ion-label>
         <ion-label slot="start"># {{item.phone}}</ion-label>
         <ion-button (click)="deleteDatoAt(i)" id="close" slot="end">
           X

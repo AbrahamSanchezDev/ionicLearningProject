@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RedireccionamientoService } from '../services/redireccionamiento.service';
 
 export class modena {
   nombre: string = '';
@@ -58,7 +59,16 @@ export class ConvertidorDeMonedasPage implements OnInit {
   cantidad: number = 0;
 
   monedas: { [key: string]: any } = {};
-  constructor() {
+
+  constructor(private redireccionamiento: RedireccionamientoService) {}
+
+  nav(ruta: string) {
+    this.redireccionamiento.navegar(ruta);
+  }
+
+  ngOnInit() {
+    this.equivalente = '0';
+
     const usd = new modena('USD', '$', 1, 42032.5, 7.16, 0.93, 17.05);
     const inr = new modena('INR', '₹', 0.012, 1, 0.012, 0.011, 0.21);
     const cny = new modena('CNY', '¥', 0.14, 11.67, 1, 0.13, 2.38);
@@ -70,10 +80,6 @@ export class ConvertidorDeMonedasPage implements OnInit {
     this.monedas['CNY'] = cny;
     this.monedas['EUR'] = eur;
     this.monedas['MXN'] = mxn;
-  }
-
-  ngOnInit() {
-    this.equivalente = "0";
   }
 
   optionChanged() {

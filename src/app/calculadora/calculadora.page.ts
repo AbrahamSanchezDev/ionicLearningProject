@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RedireccionamientoService } from '../services/redireccionamiento.service';
 
 @Component({
   selector: 'app-calculadora',
@@ -8,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 export class CalculadoraPage implements OnInit {
   display: string = '0';
 
-  constructor() {}
+  constructor(private redireccionamiento: RedireccionamientoService) {}
+
+  nav(ruta: string) {
+    this.redireccionamiento.navegar(ruta);
+  }
 
   ngOnInit() {}
 
@@ -37,8 +42,8 @@ export class CalculadoraPage implements OnInit {
     this.display = this.display.slice(0, -1);
   }
   add(key: string) {
-    console.log("Adding " + key);
-    if(this.display == "0"){
+    console.log('Adding ' + key);
+    if (this.display == '0') {
       this.display = key;
       return;
     }

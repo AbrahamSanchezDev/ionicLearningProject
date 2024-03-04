@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RedireccionamientoService } from '../services/redireccionamiento.service';
 
 @Component({
   selector: 'app-conwaygame',
@@ -12,7 +13,11 @@ export class ConwaygamePage implements OnInit {
   ancho: number = 25;
   tablero: any[][] = [];
 
-  constructor() {}
+  constructor(private redireccionamiento: RedireccionamientoService) {}
+
+  nav(ruta: string) {
+    this.redireccionamiento.navegar(ruta);
+  }
 
   ngOnInit() {
     this.poblar();
@@ -60,11 +65,11 @@ export class ConwaygamePage implements OnInit {
     return vecinos;
   }
 
-  iterar(){
-    setInterval(()=>{
+  iterar() {
+    setInterval(() => {
       this.contarVecinos();
       this.actualizarEstado();
-    },100);
+    }, 100);
   }
 
   poblar() {
