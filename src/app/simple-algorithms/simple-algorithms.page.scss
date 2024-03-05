@@ -1,0 +1,44 @@
+#celula0{
+  width: 20px;
+  height: 20px;
+  margin: 1px;
+  background: gray;
+
+  border-radius: 2px;
+  box-shadow: 0px 0px 0px 1px rgba($color: #9a9999, $alpha: 1.0);
+}
+#celula1{
+  width: 20px;
+  height: 20px;
+  margin: 1px;
+  background: green;
+
+  border-radius: 2px;
+  box-shadow: 0px 0px 0px 1px rgba($color: #9a9999, $alpha: 1.0);
+}
+
+.celula3{
+  width: 100%;
+  background-color: green;
+  border-radius: 2px;
+  box-shadow: 0px 0px 0px 1px rgba($color: #9a9999, $alpha: 1.0);
+  color: white;
+
+}
+.celula3:hover{
+  background: rgba(43, 248, 1, 0.977);
+
+}
+#celula0:hover{
+  background: rgb(87, 85, 85);
+}
+
+#celula1:hover{
+  background: rgba(43, 248, 1, 0.977);
+}
+
+#fila{
+  display: grid;
+  grid-template-columns: repeat(10,1fr);
+  gap: 10px;
+}

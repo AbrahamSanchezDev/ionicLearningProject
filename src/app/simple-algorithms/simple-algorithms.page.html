@@ -17,4 +17,19 @@
   <div id="contenedor-graficas">
     <plotly-plot [data]="grafica.data" [layout]="grafica.layout"></plotly-plot>
   </div>
+
+  <div id="numprimos">
+    <div id="fila">
+        <div [id]="'celula'+primo" *ngFor="let primo of primes">
+
+        </div>
+    </div>
+  </div>
+
+  <div id="fibonacci">
+    <div id="fila">
+        <div class="celula3" *ngFor="let nums of fibo">{{nums}}
+        </div>
+    </div>
+  </div>
 </ion-content>
