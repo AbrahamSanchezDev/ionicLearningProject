@@ -3,7 +3,7 @@
 
 Para poder ver la pagina hosteada puedes usar el siguiente link
 
-https://store.steampowered.com/widget/826930/
+https://abrahamsf-16ad5.web.app/home
 
 
 ## Installation
