@@ -28,7 +28,7 @@
     "@ionic/angular": "^7.0.0",
     "@types/plotly.js-dist-min": "^2.3.4",
     "angular-plotly.js": "^5.2.2",
-    "axios": "^1.6.7",
+    "axios": "^1.13.5",
     "concurrently": "^8.2.2",
     "cors": "^2.8.5",
     "express": "^4.18.2",
@@ -42,7 +42,7 @@
     "zone.js": "~0.14.2"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^17.0.0",
+    "@angular-devkit/build-angular": "^17.0.9",
     "@angular-eslint/builder": "^17.0.0",
     "@angular-eslint/eslint-plugin": "^17.0.0",
     "@angular-eslint/eslint-plugin-template": "^17.0.0",
